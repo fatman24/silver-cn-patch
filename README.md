@@ -236,4 +236,5 @@ SHA-256: c197efaf4bf524d54257bdfba62f8dfd48870f4f7c77ad9f6f8e47d67caf402c
 **补丁制作：fatman-24 和 偷吃白饭600M的大肥鱼**
 
 ![本次汉化消耗的 token：约 6 亿，缓存命中 98%](images/token-usage.webp)本次汉化从头到尾消耗的 token —— 约 6 亿，缓存命中 98%
+
 **原发布页：https://fatman24.cc/posts/silver-cn-patch/ **
