@@ -1,7 +1,7 @@
 > Silver Simplified Chinese Patch
 > 《银色幻想》简体中文汉化补丁
 
-![《银色幻想》简体中文汉化补丁](images/screenshot-menu.jpg)
+![《银色幻想》简体中文汉化补丁](images/cover.jpg)
 
 ## 一、项目背景
 
@@ -126,7 +126,7 @@
 
 ## 四、安装方法
 
-![《银色幻想》简体中文汉化补丁安装器](images/screenshot-options.jpg)《银色幻想》简体中文汉化补丁安装器
+![《银色幻想》简体中文汉化补丁安装器](images/installer.png)《银色幻想》简体中文汉化补丁安装器
 
 本汉化补丁适配 **Steam 版《银色幻想》**，请先确认游戏已安装并可正常启动。
 
