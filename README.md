@@ -169,18 +169,20 @@
 
 [百度网盘](https://pan.baidu.com/s/1QzvYcs3MuY1rauMF108vhQ?pwd=ccvi) 提取码: `ccvi`
 
-> 百度网盘内文件名是「银色幻想汉化补丁_v6.2.zip」，与 GitHub 上的「Silver_CN_Patch_v6.2.zip」内容完全相同（同一份 SHA-256），下载任意一处即可。
+> 百度网盘内文件名是「银色幻想汉化补丁_v6.2.1.zip」，与 GitHub 上的「Silver_CN_Patch_v6.2.1.zip」内容完全相同（同一份 SHA-256），下载任意一处即可。
 
-**文件校验（v6.2 综合包）**
+**文件校验（v6.2.1 综合包）**
 
 ```
-文件: Silver_CN_Patch_v6.2.zip
-大小: 7.16 MB
-SHA-256: c197efaf4bf524d54257bdfba62f8dfd48870f4f7c77ad9f6f8e47d67caf402c
-直链   : https://github.com/fatman24/silver-cn-patch/releases/download/v6.2/Silver_CN_Patch_v6.2.zip
+文件: Silver_CN_Patch_v6.2.1.zip
+大小: 8.12 MB
+SHA-256: 3bca4e95ca909c674e2efb0aecf184938493eadcf29de746ea44918529b68c9f
+直链   : https://github.com/fatman24/silver-cn-patch/releases/download/v6.2.1/Silver_CN_Patch_v6.2.1.zip
 ```
 
 包内含：`安装汉化.bat` / `诊断.bat` / `silver_gui.ps1` / `install.ps1` / `卸载汉化.bat`，以及两套文本与 12 套字库。
+
+> v6.2.1 只更正了说明文字（1999 年那份中文版是 EAGLES STUDIO 制作的**官方简体中文版**），游戏文件与 v6.2 完全相同；已安装旧版的玩家不必重新安装。
 
 本汉化补丁免费提供，不包含游戏本体。使用前请自行准备受支持的[正版游戏](https://store.steampowered.com/app/606680/Silver/)。
 
