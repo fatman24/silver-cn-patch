@@ -167,14 +167,15 @@
 
 [GitHub Releases](https://github.com/fatman24/silver-cn-patch/releases)
 
-百度网盘：*（待补，可先用上方 GitHub Releases）*
+[百度网盘](https://pan.baidu.com/s/替换为分享链接) 提取码: `替换`
 
 **文件校验（v6.2 综合包）**
 
 ```
-文件: 银色幻想汉化补丁_v6.2.zip
+文件: Silver_CN_Patch_v6.2.zip
 大小: 7.16 MB
 SHA-256: c197efaf4bf524d54257bdfba62f8dfd48870f4f7c77ad9f6f8e47d67caf402c
+直链   : https://github.com/fatman24/silver-cn-patch/releases/download/v6.2/Silver_CN_Patch_v6.2.zip
 ```
 
 包内含：`安装汉化.bat` / `诊断.bat` / `silver_gui.ps1` / `install.ps1` / `卸载汉化.bat`，以及两套文本与 12 套字库。
