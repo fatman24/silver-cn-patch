@@ -159,7 +159,7 @@
 
 ![小字体中文](images/screenshot-font.jpg)小字体中文（物品说明）
 
-![剧情对白](images/screenshot-menu.jpg)剧情对白（按字换行、可分页）
+![剧情对白](images/screenshot-story.jpg)剧情对白（按字换行，长句自动分页，对话框可读完并点击翻页）
 
 * * *
 
