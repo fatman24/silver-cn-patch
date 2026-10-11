@@ -167,7 +167,7 @@
 
 [GitHub Releases](https://github.com/fatman24/silver-cn-patch/releases)
 
-[百度网盘](https://pan.baidu.com/s/替换为分享链接) 提取码: `替换`
+[百度网盘](https://pan.baidu.com/s/1QzvYcs3MuY1rauMF108vhQ?pwd=ccvi) 提取码: `ccvi`
 
 **文件校验（v6.2 综合包）**
 
