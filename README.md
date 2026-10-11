@@ -169,6 +169,8 @@
 
 [百度网盘](https://pan.baidu.com/s/1QzvYcs3MuY1rauMF108vhQ?pwd=ccvi) 提取码: `ccvi`
 
+> 百度网盘内文件名是「银色幻想汉化补丁_v6.2.zip」，与 GitHub 上的「Silver_CN_Patch_v6.2.zip」内容完全相同（同一份 SHA-256），下载任意一处即可。
+
 **文件校验（v6.2 综合包）**
 
 ```
