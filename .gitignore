@@ -1,0 +1,10 @@
+# 大文件与译文负载不入库（作为 Release 附件发布）
+dist/
+payload/
+payload_zh/
+patch/
+patch_namezh/
+*.zip
+*.exe
+gamedir.txt
+variant.txt
