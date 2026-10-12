@@ -164,18 +164,18 @@
 
 [GitHub Releases](https://github.com/fatman24/silver-cn-patch/releases)
 
-**文件校验（v6.2.2 综合包）**
+**文件校验（v6.2.3 综合包）**
 
 ```
-文件: Silver_CN_Patch_v6.2.2.zip
+文件: Silver_CN_Patch_v6.2.3.zip
 大小: 6.71 MB
-SHA-256: c2706dcdc77ca5674bbb47aae0e68244c86b7080664d4c55babf8d03ce3ddb96
-直链   : https://github.com/fatman24/silver-cn-patch/releases/download/v6.2.2/Silver_CN_Patch_v6.2.2.zip
+SHA-256: 5ce112f1bb72037e0fb3f8f3e0cb222452ebeaade60395e06496eaace8dfeffa
+直链   : https://github.com/fatman24/silver-cn-patch/releases/download/v6.2.3/Silver_CN_Patch_v6.2.3.zip
 ```
 
 包内含：`安装汉化.bat` / `诊断.bat` / `silver_gui.ps1` / `install.ps1` / `卸载汉化.bat`，以及两套文本与 12 套字库。
 
-> v6.2.2：下线了在本作引擎上无法工作的「人名中文版」，只保留人名原文版；其余内容与 v6.2.2 相同。
+> v6.2.3：下线了在本作引擎上无法工作的「人名中文版」，只保留人名原文版；其余内容与 v6.2.3 相同。
 
 本汉化补丁免费提供，不包含游戏本体。使用前请自行准备受支持的[正版游戏](https://store.steampowered.com/app/606680/Silver/)。
 
