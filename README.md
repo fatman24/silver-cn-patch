@@ -40,12 +40,9 @@
 
 头像下显示的角色名（说话人字段）共 **57 个名字**。官方中文版当年只对其中一部分做了汉化，导致同一场戏里中英文人名混排，而该位置字号极小，汉字相当难认。
 
-因此本补丁提供两个版本，**除人名外完全相同**：
+头像下的人名保持原版拉丁写法（`DAVID` / `JENNIFER` / `CAPTAIN` 等），小字号下最清晰、观感与原版一致。
 
-- **人名原文版（推荐）**：头像下保留 `DAVID` / `JENNIFER` / `CAPTAIN` 等原版拉丁写法，小字号下最清晰，观感与原版一致。
-- **人名中文版**：头像下改为 `大卫` / `珍妮弗` / `船长` 等中文名，适合追求完全中文观感的玩家。
-
-两个版本可在安装界面直接切换，无需下载不同压缩包。
+> 早期版本曾提供「人名中文版」（头像下显示中文名），现已下线：本作引擎是用「说话人名字」去取 `silver\chars\` 下的角色资源，名字改成中文后就查不到，**对话框不会出现**。
 
 ### 4. 中文字体与显示适配
 
@@ -133,7 +130,7 @@
 1. 从下方下载最新版简体中文汉化补丁，解压到任意目录。
 2. 双击 `安装汉化.bat`，无需安装任何额外运行库（仅使用 Windows 自带的 PowerShell）。
 3. 安装器会**自动检测** Steam 游戏目录；若未检测到，请点「浏览…」选择包含 `silver.exe` 的目录（通常是 `...\steamapps\common\Silver`）。
-4. 在「文本版本」中选择 **人名原文版（推荐）** 或 **人名中文版**。
+4. 当前只提供人名原文版（人名中文版已下线），无需选择文本版本。
 5. 点击「安装补丁」，等待完成（首次安装会自动备份原始文件）。
 6. **请通过 Steam 启动游戏**（库 → Silver → 开始）。
 
@@ -167,22 +164,18 @@
 
 [GitHub Releases](https://github.com/fatman24/silver-cn-patch/releases)
 
-[百度网盘](https://pan.baidu.com/s/1QzvYcs3MuY1rauMF108vhQ?pwd=ccvi) 提取码: `ccvi`
-
-> 百度网盘内文件名是「银色幻想汉化补丁_v6.2.1.zip」，与 GitHub 上的「Silver_CN_Patch_v6.2.1.zip」内容完全相同（同一份 SHA-256），下载任意一处即可。
-
-**文件校验（v6.2.1 综合包）**
+**文件校验（v6.2.2 综合包）**
 
 ```
-文件: Silver_CN_Patch_v6.2.1.zip
-大小: 8.12 MB
-SHA-256: 3bca4e95ca909c674e2efb0aecf184938493eadcf29de746ea44918529b68c9f
-直链   : https://github.com/fatman24/silver-cn-patch/releases/download/v6.2.1/Silver_CN_Patch_v6.2.1.zip
+文件: Silver_CN_Patch_v6.2.2.zip
+大小: 6.71 MB
+SHA-256: c2706dcdc77ca5674bbb47aae0e68244c86b7080664d4c55babf8d03ce3ddb96
+直链   : https://github.com/fatman24/silver-cn-patch/releases/download/v6.2.2/Silver_CN_Patch_v6.2.2.zip
 ```
 
 包内含：`安装汉化.bat` / `诊断.bat` / `silver_gui.ps1` / `install.ps1` / `卸载汉化.bat`，以及两套文本与 12 套字库。
 
-> v6.2.1 只更正了说明文字（1999 年那份中文版是 EAGLES STUDIO 制作的**官方简体中文版**），游戏文件与 v6.2 完全相同；已安装旧版的玩家不必重新安装。
+> v6.2.2：下线了在本作引擎上无法工作的「人名中文版」，只保留人名原文版；其余内容与 v6.2.2 相同。
 
 本汉化补丁免费提供，不包含游戏本体。使用前请自行准备受支持的[正版游戏](https://store.steampowered.com/app/606680/Silver/)。
 
