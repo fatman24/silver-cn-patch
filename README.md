@@ -173,9 +173,11 @@ SHA-256: 5ce112f1bb72037e0fb3f8f3e0cb222452ebeaade60395e06496eaace8dfeffa
 直链   : https://github.com/fatman24/silver-cn-patch/releases/download/v6.2.3/Silver_CN_Patch_v6.2.3.zip
 ```
 
-包内含：`安装汉化.bat` / `诊断.bat` / `silver_gui.ps1` / `install.ps1` / `卸载汉化.bat`，以及两套文本与 12 套字库。
+包内含：`安装汉化.bat` / `诊断.bat` / `silver_gui.ps1` / `install.ps1` / `卸载汉化.bat`，以及中文文本与 12 套字库。
 
-> v6.2.3：下线了在本作引擎上无法工作的「人名中文版」，只保留人名原文版；其余内容与 v6.2.3 相同。
+> v6.2.3：修复上一版校对引入的 **128 处「?」缺字**（模型改写文本时用「?」当占位符，已逐条回退为原译文）；v6.2.2 起下线了在本作引擎上无法工作的「人名中文版」，只保留人名原文版。
+>
+> 更早：v6.2.1 更正了说明文字（1999 年那份中文版是 **EAGLES STUDIO** 制作的官方简体中文版）。
 
 本汉化补丁免费提供，不包含游戏本体。使用前请自行准备受支持的[正版游戏](https://store.steampowered.com/app/606680/Silver/)。
 
