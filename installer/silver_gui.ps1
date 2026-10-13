@@ -101,7 +101,7 @@ function Update-Status {
     $v = 'latin'
     try { $v = (Get-Content -LiteralPath $man -Raw -Encoding UTF8 | ConvertFrom-Json).variant } catch { }
     if (-not $v) { $v = 'latin' }
-    $vn = if ($v -eq 'zh') { '人名中文版' } else { '人名原文版' }
+    $vn = if ($v -eq 'zh') { '人名中文版' } else { '人名英文版' }
     $bad = 0
     try {
         $out = & powershell @PSARGS -File $Inst status -GameDir $dir 2>&1
@@ -140,7 +140,7 @@ function Run-Action([string]$action) {
         }
     }
 
-    $vn = if ((Get-VariantWanted) -eq 'zh') { '人名中文版' } else { '人名原文版' }
+    $vn = if ((Get-VariantWanted) -eq 'zh') { '人名中文版' } else { '人名英文版' }
     Log "开始：$action（$vn）"
     $bar.Style = 'Marquee'; $bar.MarqueeAnimationSpeed = 30
     $f.Cursor = [System.Windows.Forms.Cursors]::WaitCursor
@@ -191,7 +191,7 @@ $lblSub.AutoSize = $true
 $head.Controls.Add($lblSub)
 
 $lblVer = New-Object System.Windows.Forms.Label
-$lblVer.Text = 'v6.2'
+$lblVer.Text = 'v6.3.0'
 $lblVer.Font = New-Object System.Drawing.Font('Microsoft YaHei UI', 11, [System.Drawing.FontStyle]::Bold)
 $lblVer.ForeColor = [System.Drawing.Color]::FromArgb(206, 186, 152)
 $lblVer.TextAlign = 'MiddleRight'
@@ -258,7 +258,7 @@ $lblV.AutoSize = $true
 $card2.Controls.Add($lblV)
 
 $rbLatin = New-Object System.Windows.Forms.RadioButton
-$rbLatin.Text = '人名原文版（推荐）　头像下保留 DAVID / JENNIFER / CAPTAIN 等原版写法　·　小字号下最清晰'
+$rbLatin.Text = '人名英文版（推荐）　头像下显示 Grandad / The Chronicler / Silver 等原版英文名'
 $rbLatin.Location = New-Object System.Drawing.Point(16, 28)
 $rbLatin.AutoSize = $true
 $rbLatin.Checked = $true
@@ -266,7 +266,7 @@ $rbLatin.ForeColor = $C_TEXT
 $card2.Controls.Add($rbLatin)
 
 $rbZh = New-Object System.Windows.Forms.RadioButton
-$rbZh.Text = '人名中文版　　　　　头像下改为 大卫 / 珍妮弗 / 船长 等中文名　·　完全中文观感'
+$rbZh.Text = '人名中文版（渲染期替换）　头像下显示 爷爷 / 编年史官 / 白银 等中文名　·　不碰资源键，剧情不受影响'
 $rbZh.Location = New-Object System.Drawing.Point(16, 54)
 $rbZh.AutoSize = $true
 $rbZh.ForeColor = $C_TEXT
@@ -341,7 +341,8 @@ try {
 } catch { }
 try {
     if (Test-Path $VarTxt) {
-        if ((Get-Content $VarTxt -Raw).Trim() -eq 'zh') { $rbLatin.Checked = $false; $rbZh.Checked = $true }
+        $want = (Get-Content -LiteralPath $VarTxt -First 1).Trim().ToLower()
+        if ($want -eq 'zh') { $rbZh.Checked = $true } else { $rbLatin.Checked = $true }
     }
 } catch { }
 try {

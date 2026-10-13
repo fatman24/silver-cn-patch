@@ -38,10 +38,8 @@ function Resolve-Variant {
 }
 
 function Get-PayloadDir {
-  $v = Resolve-Variant
-  $dir = if ($v -eq 'zh') { Join-Path $Root 'payload_zh' } else { Join-Path $Root 'payload' }
-  if (-not (Test-Path -LiteralPath $dir)) { $dir = Join-Path $Root 'payload' }
-  return $dir
+  # 基础层永远是 payload；人名中文版额外叠加 payload_zh（覆盖层，见 Get-PayloadFiles）
+  return (Join-Path $Root 'payload')
 }
 
 # 本补丁适配的 silver.exe 版本（3,024,384 字节）
@@ -52,6 +50,8 @@ $PatchedShaOld = 'acbdc9809149d854974160e00ecd1e8f81b4ba64f1d7a2689dc4647a59b409
 $PatchedShaOld2 = 'd670f51e32aa5bd17d10145e389cb7e9bcf6fecbbbbcce2bb4e7795f393afded'
 $PatchedShaOld4 = 'c91a88d138b3ac48aa2744cbff50c40d9c8efc7b9b5b377e149dd9d3e696f6a5'
 $PatchedShaOld3 = '03feec362f981f238745b3e1a65a88d56156788817ba5fa174c63ef6b120bfd5'
+# 人名中文版（渲染期替换）用的 silver.exe
+$PatchedShaZh  = '57f32e7596bc73f6ec1313ec197f0ac578251b6f8d78ac83af7a2ec006d2f535'
 
 function Fail($msg) { Write-Host "错误: $msg" -ForegroundColor Red; exit 1 }
 
@@ -90,13 +90,20 @@ function Get-Sha($path) { (Get-FileHash -LiteralPath $path -Algorithm SHA256).Ha
 function Get-PayloadFiles {
   $Payload = Get-PayloadDir
   if (-not (Test-Path -LiteralPath $Payload)) { Fail "找不到 payload 目录: $Payload" }
-  $full = (Resolve-Path $Payload).Path
-  $out = @()
-  foreach ($f in Get-ChildItem -LiteralPath $Payload -Recurse -File) {
-    $rel = $f.FullName.Substring($full.Length).TrimStart('\')
-    $out += [pscustomobject]@{ rel = $rel; src = $f.FullName }
+  $dirs = @($Payload)
+  if ((Resolve-Variant) -eq 'zh') {
+    $ov = Join-Path $Root 'payload_zh'
+    if (Test-Path -LiteralPath $ov) { $dirs += $ov }   # 覆盖层：同名文件以后者为准
   }
-  return ($out | Sort-Object rel)
+  $map = [ordered]@{}
+  foreach ($d in $dirs) {
+    $full = (Resolve-Path $d).Path
+    foreach ($f in Get-ChildItem -LiteralPath $d -Recurse -File) {
+      $rel = $f.FullName.Substring($full.Length).TrimStart('\')
+      $map[$rel.ToLower()] = [pscustomobject]@{ rel = $rel; src = $f.FullName }
+    }
+  }
+  return ($map.Values | Sort-Object rel)
 }
 
 function Do-Install($game) {
@@ -110,14 +117,14 @@ function Do-Install($game) {
   }
   $files = Get-PayloadFiles
   Write-Host "游戏目录: $game"
-  Write-Host "文本版本: $(if ((Resolve-Variant) -eq 'zh') { '人名中文版' } else { '人名原文版' })"
+  Write-Host "文本版本: $(if ((Resolve-Variant) -eq 'zh') { '人名中文版' } else { '人名英文版' })"
   Write-Host "补丁文件: $($files.Count) 个"
 
   # 版本校验：确认游戏目录里的 silver.exe 是本补丁适配的那个版本
   $exe = Join-Path $game 'silver.exe'
   if (Test-Path -LiteralPath $exe) {
     $h = Get-Sha $exe
-    if ($h -ne $OrigSha -and $h -ne $PatchedSha -and $h -ne $PatchedShaOld -and $h -ne $PatchedShaOld2 -and $h -ne $PatchedShaOld3 -and $h -ne $PatchedShaOld4 -and $h -ne $PatchedShaOld5 -and $h -ne $PatchedShaOld6) {
+    if ($h -ne $OrigSha -and $h -ne $PatchedSha -and $h -ne $PatchedShaOld -and $h -ne $PatchedShaOld2 -and $h -ne $PatchedShaOld3 -and $h -ne $PatchedShaOld4 -and $h -ne $PatchedShaOld5 -and $h -ne $PatchedShaOld6 -and $h -ne $PatchedShaZh) {
       Write-Host ""
       Write-Host "!! 警告：游戏目录里的 silver.exe 不是本补丁适配的版本。" -ForegroundColor Yellow
       Write-Host "   期望（原版）  : $OrigSha"
@@ -222,7 +229,7 @@ function Do-Status($game) {
   if (-not (Test-Path $manifest)) { Write-Host "未安装（没有安装记录）。"; return }
   $man = Get-Content $manifest -Raw -Encoding UTF8 | ConvertFrom-Json
   Write-Host "安装时间: $($man.when)"
-  if ($man.variant) { Write-Host "文本版本: $(if ($man.variant -eq 'zh') { '人名中文版' } else { '人名原文版' })" }
+  if ($man.variant) { Write-Host "文本版本: $(if ($man.variant -eq 'zh') { '人名中文版' } else { '人名英文版' })" }
   Write-Host "记录文件: $($man.files.Count) 个"
   $changed = 0
   foreach ($rec in $man.files) {
